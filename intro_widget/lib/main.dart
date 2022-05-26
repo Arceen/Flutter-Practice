@@ -1,11 +1,38 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(const MaterialApp(home: MyApp5()));
+  runApp(const MaterialApp(home: MyApp6()));
+}
+
+class MyApp6 extends StatelessWidget {
+  const MyApp6({super.key});
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: Container(
+        height: 50,
+        decoration: BoxDecoration(
+          color: Colors.lightBlue,
+          borderRadius: BorderRadius.circular(15),
+        ),
+        margin: EdgeInsets.all(16.0),
+        padding: EdgeInsets.all(8.0),
+        child: GestureDetector(
+          child: Text(
+            'Play',
+            style: Theme.of(context).primaryTextTheme.bodyText2,
+          ),
+          onDoubleTap: () {
+            print("You double tapped");
+          },
+        ),
+      ),
+    );
+  }
 }
 
 class MyApp5 extends StatelessWidget {
-  const MyApp5({Key? key}) : super(key: key);
+  const MyApp5({super.key});
   @override
   Widget build(BuildContext context) {
     return Center(
