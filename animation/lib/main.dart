@@ -73,35 +73,62 @@ class _MyAppState extends State<MyApp> with TickerProviderStateMixin {
         //     });
         //   },
         // ),
-        child: RotationTransition(
+        // child: RotationTransition(
+        //   child: Container(
+        //     width: 200,
+        //     height: 200,
+        //     color: Colors.blue,
+        //   ),
+        //   turns: _controller!,
+        //   alignment: Alignment.center,
+        // ),
+        child: Hero(
+          tag: 'box',
           child: Container(
-            width: 200,
-            height: 200,
             color: Colors.blue,
+            height: 100,
+            width: 100,
           ),
-          turns: _controller!,
-          alignment: Alignment.center,
         ),
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          final random = Random();
-          setState(() {
-            color = Color.fromRGBO(
-              random.nextInt(256),
-              random.nextInt(256),
-              random.nextInt(256),
-              random.nextDouble(),
-            );
-            width = 2 + random.nextDouble() * 298;
-            height = 2 + random.nextDouble() * 298;
-            br = random.nextDouble() * 100;
-          });
-          if (_controller!.isAnimating) {
-            _controller!.stop();
-          } else {
-            _controller!.repeat();
-          }
+          // final random = Random();
+          // setState(() {
+          //   color = Color.fromRGBO(
+          //     random.nextInt(256),
+          //     random.nextInt(256),
+          //     random.nextInt(256),
+          //     random.nextDouble(),
+          //   );
+          //   width = 2 + random.nextDouble() * 298;
+          //   height = 2 + random.nextDouble() * 298;
+          //   br = random.nextDouble() * 100;
+          // });
+          // if (_controller!.isAnimating) {
+          //   _controller!.stop();
+          // } else {
+          //   _controller!.repeat();
+          // }
+          Navigator.of(context).push(
+            MaterialPageRoute(
+              fullscreenDialog: true,
+              builder: (context) {
+                return MaterialApp(
+                  home: Scaffold(
+                    body: Hero(
+                      tag: 'box',
+                      child: Container(
+                        color: Colors.red,
+                        height: 50,
+                        width: 50,
+                      ),
+                    ),
+                  ),
+                );
+              },
+            ),
+          );
         },
         child: const Text("Change"),
       ),
